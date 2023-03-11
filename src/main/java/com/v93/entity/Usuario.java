@@ -15,15 +15,17 @@ public class Usuario implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	
+	@Column(length=60)
 	private String correo;
+	@Column(length=40)
 	private String clave;
 	
-	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Cliente persona;
+	@OneToOne(mappedBy = "usuario", fetch = FetchType.LAZY)
+    private Cliente cliente;
 	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "rol_id", referencedColumnName = "id", unique=true)
+	@OneToOne
+    @JoinColumn(name = "rol_id", referencedColumnName = "id")
 	private Rol rol;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

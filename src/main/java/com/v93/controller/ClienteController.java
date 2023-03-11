@@ -61,7 +61,6 @@ public class ClienteController {
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
 		clienteService.delete(id);
-	}
-		
+	}		
 
 }

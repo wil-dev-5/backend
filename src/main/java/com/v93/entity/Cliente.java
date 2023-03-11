@@ -14,15 +14,20 @@ public class Cliente implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(unique = true)
+	@Column(unique = true, length=20)
 	private String cedula;
+	@Column(length=40)
 	private String nombre;
+	@Column(length=40)
 	private String apellido;
+	@Column(length=100)
 	private String direccion;
+	@Column(length=20)
 	private String telefono;
+	@Column(length=20)
 	private String fecha_nacimiento;
 	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToOne
     @JoinColumn(name = "usuario_id", referencedColumnName = "id", unique=true)
 	private Usuario usuario;
 	

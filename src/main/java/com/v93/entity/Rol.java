@@ -13,9 +13,10 @@ public class Rol implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(length=40)
 	private String nombre;
 	
-	@OneToOne(mappedBy = "rol", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToOne(mappedBy = "rol", fetch = FetchType.LAZY)
 	private Usuario usuario;
 
 	public Long getId() {

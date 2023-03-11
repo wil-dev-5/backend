@@ -14,19 +14,23 @@ public class Producto implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	@Column(length=40)
 	private String nombre;
+	@Column(length=20)
 	private long stock;
+	@Column(length=20)
 	private double precio;
+	@Column(length=40)
 	private String color;
+	@Column(length=20)
 	private String talla;
 	private String foto;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne
     @JoinColumn(name = "usuario_id", referencedColumnName = "id")
 	private Usuario usuario;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne
     @JoinColumn(name = "categoria_id", referencedColumnName = "id")
 	private Categoria categoria;
 

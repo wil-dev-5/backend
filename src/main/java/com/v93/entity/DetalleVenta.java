@@ -12,13 +12,14 @@ public class DetalleVenta implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(length=20)
 	private Long cantidad;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne
     @JoinColumn(name = "orden_id", referencedColumnName = "id")
 	private OrdenVenta orden;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne
     @JoinColumn(name = "producto_id", referencedColumnName = "id")
 	private Producto producto;
 

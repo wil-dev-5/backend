@@ -2,7 +2,6 @@ package com.v93.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -15,11 +14,14 @@ public class OrdenVenta implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(length=20)
 	private String numero;
+	@Column(length=20)
 	private String fecha;
+	@Column(length=20)
 	private Double total;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne
     @JoinColumn(name = "cliente_id", referencedColumnName = "id")
 	private Cliente cliente;
 	
